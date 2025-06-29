@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>SwiftLogistics Chennai - Your Local Delivery Partner</title>
+    <meta name="description" content="SwiftLogistics Chennai: Reliable, efficient, and trusted logistics partner for local deliveries in Chennai. Get fast and secure parcel, document, and small business logistics solutions.">
+    <meta name="keywords" content="logistics Chennai, delivery services Chennai, parcel delivery Chennai, document delivery Chennai, local logistics, small business logistics Chennai, last-mile delivery Chennai">
+    <meta name="author" content="SwiftLogistics Chennai">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400&display=swap">
+    
+    <style>
+        /* CSS Reset & Basic Styles */
+        :root {
+            --primary-blue: #0056b3; /* A strong, professional blue */
+            --secondary-grey: #f8f9fa; /* Light grey for sections */
+            --text-dark: #333;
+            --text-light: #fff;
+            --cta-bg: #28a745; /* A clear, actionable green */
+            --cta-hover: #218838;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --container-max-width: 90%; /* For mobile optimization */
+            --spacing-unit: 16px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%; /* Prevent text zoom on orientation change */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--text-light);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            padding-top: 60px; /* Space for fixed header */
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #003f80;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: var(--spacing-unit);
+            color: var(--primary-blue);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.2em; } /* For Hero Headline */
+        h2 { font-size: 1.8em; } /* Section Headings */
+        h3 { font-size: 1.4em; } /* Sub-headings/Service titles */
+
+        p {
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .container {
+            max-width: 1200px; /* Max width for larger screens */
+            width: var(--container-max-width);
+            margin: 0 auto;
+            padding: var(--spacing-unit) 0; /* Vertical padding */
+        }
+
+        section {
+            padding: calc(2 * var(--spacing-unit)) 0; /* More padding for sections */
+            position: relative; /* For background images, etc. */
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px var(--shadow);
+            height: 60px; /* Fixed height for header */
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5em;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            font-size: 0.8em; /* "Chennai" part */
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .hamburger {
+            display: block; /* Always show on mobile */
+            font-size: 2em;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 5px;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+        }
+
+        .nav-menu {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            animation: fadeIn 0.3s forwards;
+        }
+
+        .nav-menu.open {
+            display: flex;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            font-size: 1.8em;
+            padding: var(--spacing-unit);
+            display: block;
+            text-align: center;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.5em;
+            color: var(--text-light);
+            background: none;
+            border: none;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #e9f0f7; /* Lighter background */
+            position: relative;
+            min-height: 350px; /* Minimum height for visual impact */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: calc(4 * var(--spacing-unit)) var(--spacing-unit); /* More padding */
+            overflow: hidden;
+            background-image: url('https://via.placeholder.com/600x400/D0E0F0/555555?text=SwiftLogistics+Chennai'); /* Placeholder Image */
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light); /* Text over image */
+            box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.4); /* Dark overlay for readability */
+            margin-top: -60px; /* Counteract padding-top on body */
+            padding-top: calc(60px + 4 * var(--spacing-unit)); /* Adjust for fixed header */
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 90%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 2.2em;
+            color: var(--text-light);
+            margin-bottom: var(--spacing-unit) / 2;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: calc(1.5 * var(--spacing-unit));
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cta-bg);
+            color: var(--text-light);
+            padding: var(--spacing-unit) calc(1.5 * var(--spacing-unit));
+            border-radius: var(--border-radius);
+            font-size: 1.1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        .cta-button:hover {
+            background-color: var(--cta-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        .about-us, .services, .testimonials, .contact {
+            background-color: var(--secondary-grey);
+            text-align: center;
+        }
+
+        .about-us h2, .services h2, .testimonials h2, .contact h2 {
+            margin-bottom: calc(1.5 * var(--spacing-unit));
+            text-align: center;
+        }
+        
+        .about-us {
+            background-color: var(--text-light); /* White background for contrast */
+        }
+
+        .about-us .content-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-us ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Stack on mobile */
+            gap: var(--spacing-unit);
+            margin-top: var(--spacing-unit);
+            text-align: left; /* Align list items left */
+        }
+
+        .about-us ul li {
+            font-weight: 600;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-us ul li::before {
+            content: '✔️'; /* Checkmark icon */
+            font-size: 1.2em;
+            color: var(--cta-bg);
+        }
+
+        /* Services Section */
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: calc(1.5 * var(--spacing-unit));
+            margin-top: calc(2 * var(--spacing-unit));
+        }
+
+        .service-item {
+            background-color: var(--text-light);
+            padding: calc(1.5 * var(--spacing-unit));
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px var(--shadow);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-item h3 {
+            color: var(--primary-blue);
+            margin-bottom: var(--spacing-unit) / 2;
+        }
+
+        .service-item p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--text-light); /* White background */
+        }
+
+        .testimonial-item {
+            background-color: var(--secondary-grey);
+            padding: calc(1.5 * var(--spacing-unit));
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-unit);
+            box-shadow: 0 2px 5px var(--shadow);
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-item::before {
+            content: '“';
+            font-size: 3em;
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            color: rgba(0, 86, 179, 0.1); /* Light transparent blue */
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            margin-top: var(--spacing-unit);
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-style: normal;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--secondary-grey);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column; /* Stack on mobile */
+            gap: var(--spacing-unit);
+            margin-bottom: calc(2 * var(--spacing-unit));
+            align-items: center;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dark);
+            font-size: 1.1em;
+        }
+        
+        .contact-info-item a {
+            color: var(--text-dark); /* Ensure text remains dark */
+        }
+
+        .contact-info-item .icon {
+            font-size: 1.5em; /* Larger icons */
+            color: var(--primary-blue);
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--text-light);
+            padding: calc(1.5 * var(--spacing-unit));
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px var(--shadow);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group button {
+            width: 100%;
+            background-color: var(--cta-bg);
+            color: var(--text-light);
+            padding: var(--spacing-unit);
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .form-group button:hover {
+            background-color: var(--cta-hover);
+            transform: translateY(-2px);
+        }
+
+        .map-container {
+            margin-top: calc(2 * var(--spacing-unit));
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 8px var(--shadow);
+            height: 250px; /* Fixed height for mobile map */
+            width: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: calc(1.5 * var(--spacing-unit));
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .footer .social-icons {
+            margin-bottom: var(--spacing-unit);
+        }
+
+        .footer .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: #ccc;
+        }
+
+        .footer a {
+            color: var(--text-light);
+            text-decoration: underline;
+            margin: 0 5px;
+        }
+
+        .footer a:hover {
+            color: #ccc;
+        }
+
+        /* Utility classes & Animations */
+        .text-center { text-align: center; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Adjustments (Desktop/Tablet - Minimal for LITE) */
+        @media (min-width: 768px) {
+            h1 { font-size: 3em; }
+            h2 { font-size: 2.2em; }
+            h3 { font-size: 1.6em; }
+
+            body {
+                padding-top: 80px; /* Adjust for larger header on desktop */
+            }
+
+            .header {
+                height: 80px;
+                padding: var(--spacing-unit) calc(2 * var(--spacing-unit));
+            }
+
+            .logo {
+                font-size: 1.8em;
+            }
+
+            .hamburger {
+                display: none; /* Hide hamburger on desktop */
+            }
+
+            .nav-menu {
+                display: flex; /* Always show nav on desktop */
+                position: static;
+                background-color: transparent;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                height: auto;
+                width: auto;
+                animation: none;
+            }
+
+            .nav-menu a {
+                font-size: 1em;
+                padding: 10px 15px;
+                width: auto;
+                background-color: transparent;
+            }
+
+            .nav-menu a:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 4px;
+            }
+
+            .close-button {
+                display: none; /* Hide close button on desktop */
+            }
+
+            .hero {
+                min-height: 450px;
+                padding-top: calc(80px + 4 * var(--spacing-unit)); /* Adjust for larger header */
+            }
+
+            .hero h1 {
+                font-size: 3.5em;
+            }
+
+            .hero p {
+                font-size: 1.3em;
+            }
+
+            .about-us ul {
+                flex-direction: row; /* Display side-by-side on desktop */
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .about-us ul li {
+                width: 48%; /* Two columns */
+            }
+
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on tablet/desktop */
+            }
+
+            .testimonial-item {
+                margin: 0 var(--spacing-unit); /* Add horizontal margin */
+                width: calc(50% - (2 * var(--spacing-unit))); /* Two columns with gap */
+                display: inline-block; /* Allow items to sit next to each other */
+                vertical-align: top; /* Align tops */
+            }
+
+            .contact-info {
+                flex-direction: row; /* Display side-by-side on desktop */
+                justify-content: center;
+            }
+
+            .map-container {
+                height: 350px; /* Larger map on desktop */
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .service-grid {
+                grid-template-columns: repeat(3, 1fr); /* Three columns on larger desktop */
+            }
+        }
+
+        /* FontAwesome Icons - Minimal Load */
+        /* Normally you'd link a full stylesheet, but for LITE and embedded,
+           we'll just use common symbols or a very specific few SVGs if needed.
+           For this demo, we'll use unicode characters as placeholders.
+           In a real LITE deployment, SVGs or a custom icon font is better. */
+        .icon-truck::before { content: "🚚"; }
+        .icon-mail::before { content: "✉️"; }
+        .icon-phone::before { content: "📞"; }
+        .icon-map::before { content: "📍"; }
+        .icon-clock::before { content: "⏰"; }
+        .icon-linkedin::before { content: "🔗"; } /* Placeholder for LinkedIn */
+        .icon-facebook::before { content: "👍"; } /* Placeholder for Facebook */
+
+        /* Specific styles for social icons (using text for LITE) */
+        .social-icon {
+            font-family: 'Open Sans', sans-serif; /* Use a web-safe font for text icons */
+            font-size: 1.2em;
+            padding: 5px 8px;
+            border: 1px solid var(--text-light);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 1; /* For better vertical alignment of text */
+        }
+        .social-icon.linkedin { background-color: #0077B5; border-color: #0077B5; }
+        .social-icon.facebook { background-color: #1877F2; border-color: #1877F2; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">SwiftLogistics <span>Chennai</span></div>
+        <button class="hamburger" id="hamburger-menu" aria-label="Open navigation menu">&#9776;</button>
+        <nav class="nav-menu" id="nav-menu">
+            <button class="close-button" id="close-menu" aria-label="Close navigation menu">&times;</button>
+            <a href="#hero">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>SwiftLogistics Chennai: Delivering Excellence, On Time.</h1>
+            <p>Reliable. Efficient. Your Trusted Partner for Local Deliveries.</p>
+            <a href="#services" class="cta-button">Our Services</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-us container">
+        <h2>About ZEN Logistics?</h2>
+        <div class="content-wrapper">
+            <p>At SwiftLogistics Chennai, we understand the pulse of local businesses. We're committed to providing seamless, punctual, and reliable logistics solutions that help your operations run smoothly, every single day.</p>
+          <p>With our deep knowledge of Chennai's intricate routes and a dedication to customer satisfaction, we ensure your parcels and documents reach their destination swiftly and securely. genrate two para like this
+
+
+
+With our deep understanding of Chennai's intricate routes and a steadfast dedication to customer satisfaction, we ensure your parcels and documents reach their destination swiftly and securely. Our experienced team navigates the city's unique traffic patterns and shortcuts, guaranteeing efficient and timely deliveries every time.
+            </p>
+            <p>We pride ourselves on a seamless delivery experience, from careful handling of your items to real-time tracking updates. Trust us to connect your important packages with their recipients across Chennai, providing peace of mind with every delivery.</p>
+            <ul>
+                <li>Reliability: Punctual deliveries, every time.</li>
+                <liLocal Expertise: Deep understanding of Chennai's routes and logistics.</li>
+                <li>Customer Focus: Personalized service for your unique needs.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="services" class="services container">
+        <h2>Our Core Services</h2>
+        <div class="service-grid">
+            <div class="service-item">
+                <h3>Local Parcel Delivery</h3>
+                <p>Fast and secure delivery of packages within Chennai. From small items to larger shipments, we handle your goods with care and efficiency.</p>
+            </div>
+            <div class="service-item">
+                <h3>Express Document Delivery</h3>
+                <p>Urgent transport for time-sensitive documents across the city. We ensure your critical papers arrive promptly and confidentially.</p>
+            </div>
+            <div class="service-item">
+                <h3>Small Business Logistics</h3>
+                <p>Tailored solutions designed for local businesses of all sizes. Let us manage your last-mile delivery, so you can focus on your core operations.</p>
+            </div>
+            <div class="service-item">
+                <h3>Last-Mile Solutions</h3>
+                <p>Efficient final leg delivery, ensuring customer satisfaction. We connect your products directly to your customers' doorsteps with precision.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials container">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-item">
+            <p>""Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="testimonial-author">- client 1, job title, Company name</p>
+        </div>
+        <div class="testimonial-item">
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            <p class="testimonial-author">-client 2, job title, Company name</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact container">
+        <h2>Get in Touch</h2>
+        <div class="contact-info">
+            <div class="contact-info-item">
+                <span class="icon icon-phone"></span>
+                <a href="tel:+919988776655">+91 98401234567a>
+            </div>
+            <div class="contact-info-item">
+                <span class="icon icon-mail"></span>
+                <a href="mailto:info@swiftlogisticschennai.com">info@swiftlogisticschennai.com</a>
+            </div>
+            <div class="contact-info-item">
+                <span class="icon icon-map"></span>
+                <span>Unit 5, Chennai Logistics Hub, Guindy, Chennai - 600032</span>
+            </div>
+            <div class="contact-info-item">
+                <span class="icon icon-clock"></span>
+                <span>Mon-Sat: 9:00 AM - 6:00 PM</span>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3>Send Us a Message</h3>
+            <form action="#" method="POST"> <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company (Optional):</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Inquiry</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15545.922485501463!2d80.20790145!3d12.99047915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52668df2c0c1b7%3A0x6b7a5a8f4c4a4e0a!2sGuindy%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1719602400000!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SwiftLogistics Chennai Location"></iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>
+            &copy; 2025 SwiftLogistics Chennai. All Rights Reserved.
+            <a href="#privacy-policy">Privacy Policy</a>
+            | Built for [Your Company Name/Lite Product Name]
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger-menu');
+            const navMenu = document.getElementById('nav-menu');
+            const closeButton = document.getElementById('close-menu');
+            const navLinks = navMenu.querySelectorAll('a');
+
+            function toggleMenu() {
+                navMenu.classList.toggle('open');
+                // Optional: Add/remove aria-expanded for accessibility
+                const isExpanded = navMenu.classList.contains('open');
+                hamburger.setAttribute('aria-expanded', isExpanded);
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            closeButton.addEventListener('click', toggleMenu);
+
+            // Close menu when a link is clicked (for smooth scrolling)
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Prevent default anchor link behavior and implement smooth scroll
+                    event.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); // Get target ID
+                    const targetSection = document.getElementById(targetId);
+
+                    if (targetSection) {
+                        const headerOffset = document.querySelector('.header').offsetHeight;
+                        const elementPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                    toggleMenu(); // Close menu after clicking
+                });
+            });
+
+            // Prevent scroll when menu is open
+            // This is a common pattern, but for a "LITE" site with full-screen overlay,
+            // it might be overkill. Keeping it minimal for now.
+            // When menu is open, body gets 'no-scroll' class
+            // document.body.classList.toggle('no-scroll', isExpanded);
+            // CSS for .no-scroll: overflow: hidden;
+        });
+
+        // Basic form submission handling (for demo purposes)
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent actual form submission
+                alert('Thank you for your inquiry! We will get back to you soon.');
+                contactForm.reset(); // Clear the form
+                // In a real scenario, you'd send this data to a backend service (e.g., Formspree, Netlify Forms, or a custom API)
+            });
+        }
+    </script>
+
+</body>
+</html>
